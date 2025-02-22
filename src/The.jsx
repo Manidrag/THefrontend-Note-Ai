@@ -45,4 +45,4 @@ function Project() {
     )
 }
 
-export default Pr
+export default Project
