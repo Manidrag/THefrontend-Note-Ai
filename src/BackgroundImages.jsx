@@ -1,21 +1,14 @@
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
-import image2 from "/src/assets/image2.jpg";
-import image3 from "/src/assets/image3.jpg"; // Corrected typo
-import image4 from "/src/assets/image4.jpg";
-import image1 from "/src/assets/image1.jpg";
-import image5 from "/src/assets/image5.jpg";
-import image6 from "/src/assets/image6.jpg";
-import image7 from "/src/assets/image7.jpg";
-=======
-import image2 from "src/assets/image2.jpg";
-import image3 from "src/assets/image3.jpg"; // Corrected typo
-import image4 from "src/assets/image4.jpg";
-import image1 from "src/assets/image1.jpg";
-import image5 from "src/assets/image5.jpg";
-import image6 from "src/assets/image6.jpg";
-import image7 from "src/assets/image7.jpg";
->>>>>>> bded3fd94dba3d2570795ba15f1d8df27f96b289
+
+const image2 = "/src/assets/image2.jpg";
+const  image3 ="/src/assets/image3.jpg"; // Corrected typo
+const image4 = "/src/assets/image4.jpg";
+const image1 = "/src/assets/image1.jpg";
+const image5 = "/src/assets/image5.jpg";
+const image6 = "/src/assets/image6.jpg";
+const image7 = "/src/assets/image7.jpg";
+
+
 
 export function BackgroundImg({ interval = 8000, children }) {
   const images = [image1, image2, image3, image4, image5, image6, image7];
