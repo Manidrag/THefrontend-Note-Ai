@@ -11,7 +11,7 @@ export function BackgroundImg({ interval = 8000, children }) {
   const images = [image1, image2, image3, image4, image5, image6, image7];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-
+//t
   //srrssr
 
 
