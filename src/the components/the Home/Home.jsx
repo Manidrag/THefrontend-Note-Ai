@@ -446,7 +446,7 @@ export function Home() {
                 src={fullscreenImage}
                 alt="Full Screen"
        
-                className="max-h-full max-w-full object-contain transition-opacity duration-300"
+                className="max-h-full max-w-full object-contain transition-opacity z-50 duration-300"
               />
             </div>
           )}
