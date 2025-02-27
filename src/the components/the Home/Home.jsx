@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Sidebar } from "./Sidebar";
 import { Navbar } from "./Navbar";
 import { NoteCard } from "./NoteCard";
 import { NoteModal } from "./NoteModal";
 import { EditNoteModal } from "./EditNoteModal";
-import { motion } from "framer-motion";
+
 import ErrorBoundary from "../../ErrorBoundary";
 import { BackgroundImg } from "../../BackgroundImages";
 
@@ -22,6 +22,7 @@ export function Home() {
     image: "",
     audio: "",
   });
+  
   const [isRecording, setIsRecording] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
   const [selectedNote, setSelectedNote] = useState(null);
@@ -38,6 +39,7 @@ export function Home() {
   const [recognition, setRecognition] = useState(null);
   const [recordingTimeout, setRecordingTimeout] = useState(null);
   useEffect(() => {
+   
     const fetchNotes = async () => {
       try {
         setLoading(true);
@@ -181,7 +183,11 @@ export function Home() {
         image: "",
         audio: "",
       });
-      setShowNewNoteModal(false);
+      setShowNewNoteModal(false)
+     
+      
+      
+      window.location.reload()
     } catch (err) {
       console.error("Error creating note:", err);
     }
@@ -230,16 +236,18 @@ export function Home() {
       setMediaRecorder(recorder);
   
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const SpeechGrammar =window.SpeechGrammar;
       const recognizer = new SpeechRecognition();
       recognizer.lang = 'en-US';
       recognizer.continuous = true;
       recognizer.interimResults = true;
-  
+      console.log(recognizer)
       recognizer.onresult = (event) => {
         const transcript = Array.from(event.results)
           .map(result => result[0])
           .map(result => result.transcript)
           .join('');
+         
         if (isEditing && selectedNote) {
           // When editing, update the selected note's transcription.
           setSelectedNote(prev => ({ ...prev, transcription: transcript }));
@@ -346,7 +354,7 @@ export function Home() {
           />
           <main className="flex-1 p-6 overflow-y-auto">
             {/* Warning Banner */}
-            <div className="bg-yellow-200 p-2 text-center text-sm font-bold mb-4">
+            <div className="bg-cyan-200 p-2 text-center text-sm font-bold mb-4">
               This is just a small project. Do not put sensitive information! But You can make Notes!
             </div>
             <Navbar
@@ -375,14 +383,15 @@ export function Home() {
                     deleteNote={deleteNote}
                     speakText={speakText}
                     setNotes={setNotes}
+                    setFullscreenImage={setFullscreenImage}
                   />
                 ))
               )}
             </div>
             <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2">
               <button
-                onClick={() => setShowNewNoteModal(true)}
-                className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-xl hover:bg-blue-700 transition duration-200"
+                onClick={() =>{ setShowNewNoteModal(true); }}
+                className="px-6 py-3 bg-cyan-500 text-white rounded-lg shadow-xl hover:bg-cyan-700 transition duration-200"
               >
                 Create Note
               </button>
@@ -406,7 +415,7 @@ export function Home() {
               stopRecording={stopRecording}
             />
           )}
-
+         
           {selectedNote && (
             <EditNoteModal
               selectedNote={selectedNote}
@@ -436,6 +445,7 @@ export function Home() {
               <img
                 src={fullscreenImage}
                 alt="Full Screen"
+       
                 className="max-h-full max-w-full object-contain transition-opacity duration-300"
               />
             </div>

@@ -13,10 +13,10 @@ class ErrorBoundary extends Component {
 
   componentDidCatch(error, errorInfo) {
     // You can also log the error to an error reporting service
-    console.error("ErrorBoundary caught an error", error, errorInfo);
+    console.error("ErrorBoundary caught an error yy", error, errorInfo);
     this.setState({ error, errorInfo });
   }
-
+//tt
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI

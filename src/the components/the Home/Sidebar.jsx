@@ -6,8 +6,8 @@ export function Sidebar({ showFavourites, setShowFavourites,newdata }) {
   return (
     <>
       {/* AI Notes Text (Mobile Only) */}
-      <div className="md:hidden flex items-center justify-center h-16 bg-gray-800 text-white shadow-md">
-        <span className="text-2xl font-semibold tracking-wider uppercase">
+      <div className="md:hidden flex items-center justify-center h-16 bg-white/30 backdrop-blur-2xl p-6 rounded-2xl shadow-2xl w-full max-w-md relative border border-white/20 text-white transition-transform transform  hover:scale-105  overflow-y-auto">
+        <span className="text-2xl font-semibold tracking-wider  uppercase">
           AI <span className="text-purple-400">Notes</span>
         </span>
       </div>
@@ -16,7 +16,7 @@ export function Sidebar({ showFavourites, setShowFavourites,newdata }) {
         initial={{ x: -200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="fixed top-0 left-0 h-screen w-64 bg-gradient-to-br from-gray-900 to-gray-800 text-white shadow-xl overflow-y-auto z-20 md:relative md:h-auto md:block hidden"
+        className="fixed top-0 left-0 h-screen w-64 bg-gradient-to-brbg-white/30 backdrop-blur-2xl p-6 rounded-2xl shadow-2xl  max-w-md  border border-white/20 text-white transition-transform transform scale-100 hover:scale-105  overflow-y-auto z-20 md:relative md:h-auto md:block hidden"
       >
         {/* Logo and Brand */}
         <div className="flex items-center justify-center h-20 bg-gray-900 bg-opacity-20 border-b border-gray-700">

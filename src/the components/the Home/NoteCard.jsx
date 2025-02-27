@@ -9,6 +9,7 @@ export function NoteCard({
   deleteNote,
   speakText,
   setNotes,
+  setFullscreenImage,
 }) {
   return (
     <div
@@ -61,7 +62,7 @@ export function NoteCard({
             className="mt-3 rounded-md w-full h-32 object-cover transition-opacity duration-300 hover:scale-105 hover:shadow-lg"
             onClick={(e) => {
               e.stopPropagation();
-              //setFullscreenImage(note.image);
+              setFullscreenImage(note.image);
             }}
           />
         )}

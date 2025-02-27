@@ -33,11 +33,11 @@ export function Navbar({
   }, [menuRef]);
 
   return (
-    <div className="bg-blue-200 shadow-md rounded-lg z-10 w-full">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <div className="shadow-md rounded-lg z-10 w-full bg-white/30 backdrop-blur-2xl p-6   relative border border-white/20 text-white transition-transform transform scale-100 hover:scale-105  ">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between ">
         {/* Search Input (Full Width on Mobile) */}
-        <div className="relative w-full md:w-1/3">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div className="relative w-full md:w-1/3 ">
+          <div className="absolute  inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <FiSearch className="text-gray-400" />
           </div>
           <input
@@ -51,7 +51,7 @@ export function Navbar({
 
         {/* Sort Select (Hidden on Mobile, Flex on Larger Screens) */}
         <div className="hidden md:flex items-center">
-          <label htmlFor="sort" className="mr-2 text-sm font-medium text-gray-700">
+          <label htmlFor="sort" className="mr-2 text-sm font-medium text-black-700">
             Sort by:
           </label>
           <div className="relative">
