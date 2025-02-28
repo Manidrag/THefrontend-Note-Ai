@@ -14,14 +14,14 @@ export function NoteCard({
   return (
     <div
       key={note._id}
-      className="bg-white rounded-xl shadow-md overflow-hidden relative cursor-pointer transition transform hover:scale-105 duration-300 ease-in-out mx-auto max-w-sm w-full"
+      className="bg-white/20 rounded-xl backdrop-blur-lg shadow-md overflow-hidden relative cursor-pointer transition transform hover:scale-105 duration-300 ease-in-out mx-auto max-w-sm w-full"
       onClick={() => {
         setSelectedNote(note);
         setIsEditing(false);
       }}
     >
       {/* Date Badge */}
-      <div className="absolute top-2 right-2 bg-gray-100 text-gray-600 text-xs py-1 px-2 rounded-full font-medium transition-opacity duration-300">
+      <div className="absolute top-2 right-2 bg-white/10 text-gray-600 text-xs py-1 px-2 rounded-full font-medium transition-opacity duration-300">
         {note.date}
       </div>
 
@@ -32,19 +32,19 @@ export function NoteCard({
         </h3>
 
         {note.audio && typeof note.audio === "string" ? (
-          <div className="mt-2">
-            <audio controls className="w-full">
-              <source src={note.audio} type="audio/wav" />
+          <div className="mt-2 bg-white/5">
+            <audio controls className="bg-white/10 w-full ">
+              <source src={note.audio} type="audio/wav" className="bg-white/10"/>
               Your browser does not support the audio element.
             </audio>
             {note.transcription && note.transcription.trim() !== "" && (
-              <div className="mt-1">
+              <div className="mt-1 bg-white/10">
                 <label className="block text-sm font-medium text-gray-600 mb-1 transition-colors duration-300">
                   Transcription:
                 </label>
                 <textarea
                   readOnly
-                  className="w-full p-2 border rounded-lg text-gray-700 bg-gray-50 text-sm transition-colors duration-300"
+                  className="w-full p-2 border rounded-lg text-gray-700 bg-white/10 text-sm transition-colors duration-300"
                   rows="2"
                   value={note.transcription}
                 ></textarea>
@@ -70,7 +70,7 @@ export function NoteCard({
 
       {/* Actions */}
       <div
-        className="bg-gray-50 p-3 border-t border-gray-200 flex justify-around items-center"
+        className="bg-white/10 p-3 border-t border-gray-200 flex justify-around items-center"
         onClick={(e) => e.stopPropagation()} // Prevent click propagation
       >
         <button
@@ -114,7 +114,7 @@ export function NoteCard({
               console.error("Error toggling favourite:", error);
             }
           }}
-          className="text-gray-500 hover:text-yellow-500 focus:outline-none transition-colors duration-300"
+          className="text-black hover:text-yellow-500 focus:outline-none transition-colors duration-300"
         >
           <FaStar
             className={`h-5 w-5 cursor-pointer ${
@@ -127,7 +127,7 @@ export function NoteCard({
             e.stopPropagation();
             copyNote(note.text);
           }}
-          className="text-gray-500 hover:text-blue-500 focus:outline-none transition-colors duration-300"
+          className="text-black hover:text-blue-500 focus:outline-none transition-colors duration-300"
         >
           <FaRegCopy className="h-5 w-5 transition-colors duration-300 cursor-crosshair" />
         </button>
@@ -136,7 +136,7 @@ export function NoteCard({
             e.stopPropagation();
             speakText(note.text);
           }}
-          className="text-gray-500 hover:text-green-500 focus:outline-none transition-colors duration-300"
+          className="text-black hover:text-green-500 focus:outline-none transition-colors duration-300"
         >
           <FiVolume2 className="h-5 w-5 transition-colors duration-300" />
         </button>
@@ -145,7 +145,7 @@ export function NoteCard({
             e.stopPropagation();
             deleteNote(note._id);
           }}
-          className="text-gray-500 hover:text-red-500 focus:outline-none transition-colors duration-300"
+          className="text-black hover:text-red-500 focus:outline-none transition-colors duration-300"
         >
           <FiTrash2 className="h-5 w-5 transition-colors duration-300 cursor-grab" />
         </button>

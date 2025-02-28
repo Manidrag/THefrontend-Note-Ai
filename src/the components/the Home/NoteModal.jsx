@@ -25,8 +25,8 @@ export function NoteModal({
         
         {/* Close Button (Now Visible on Mobile) */}
         <button
-          className="absolute top-3 right-3 text-gray-300 hover:text-white transition duration-300"
-          onClick={() => setShowNewNoteModal(false)}
+          className="absolute top-3 right-3 text-gray-700 hover:text-white transition duration-300"
+          onClick={() =>{ setShowNewNoteModal(false);stopRecording()}}
         >
           <FiX size={24} />
         </button>
@@ -44,7 +44,7 @@ export function NoteModal({
         {/* Note Text Area */}
         <textarea
           placeholder="Write your note..."
-          className="w-full p-3 border border-white/20 rounded-lg bg-transparent text-cyan-800 placeholder-cyan-900 focus:ring-2 focus:ring-blue-700 focus:outline-none"
+          className="w-full p-3 border border-white/20 rounded-lg bg-transparent text- placeholder-cyan-900 focus:ring-2 focus:ring-blue-700 focus:outline-none"
           rows="4"
           value={newNote.text}
           onChange={(e) => setNewNote({ ...newNote, text: e.target.value })}
@@ -89,7 +89,7 @@ export function NoteModal({
             </button>
           )}
           {isRecording && (
-            <span className="text-sm text-white/70">{recordingTime}s</span>
+            <span className="text-sm text-cyan-400">{recordingTime}s</span>
           )}
         </div>
 
@@ -100,7 +100,7 @@ export function NoteModal({
               Transcription:
             </label>
             <textarea
-              className="w-full p-2 border border-white/20 rounded-lg bg-transparent text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+              className="w-full p-2 border border-white/20 rounded-lg bg-transparent text-blue-800 placeholder-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
               rows="2"
               value={newNote.transcription}
               onChange={(e) =>
