@@ -34,7 +34,11 @@ export function Navbar({
 //ram navmi
 
   return (
+<<<<<<< HEAD
     <div className="shadow-md rounded-lg z-1 w-full bg-white/30 backdrop-blur-2xl p-6 border border-white/20 text-white transition-transform transform scale-100 hover:scale-105  ">
+=======
+    <div className="shadow-md rounded-lg z-1 w-full bg-white/30 backdrop-blur-2xl p-6   relative border border-white/20 text-white transition-transform transform hover:scale-105  ">
+>>>>>>> a72845c4990738e2dad825512c0a98887241b1ba
       <div className="container mx-auto px-4 py-3 flex items-center justify-between ">
         {/* Search Input (Full Width on Mobile) */}
         <div className="relative w-full md:w-1/3 ">
