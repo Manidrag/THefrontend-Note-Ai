@@ -12,8 +12,9 @@ export function EditNoteModal({
   startRecording,
   stopRecording,
   recordingTime,
+  setFullscreenImage,
 }) {
-  const [fullscreenImage, setFullscreenImage] = useState(null);
+ 
 
   return (
     <div className="fixed inset-0 flex justify-center items-center transition-opacity duration-300 px-4">

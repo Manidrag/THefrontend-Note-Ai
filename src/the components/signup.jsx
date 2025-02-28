@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { z } from "zod";
+import { CustomHAlert } from "./TheHAlert";
 
 const signupSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -13,6 +14,7 @@ export function Signup() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
+  const [showHalert, setShowHalert] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,8 +38,11 @@ export function Signup() {
       const data = await res.json();
       setLoading(false);
       if (data.message === "user created") {
-        alert("User created successfully!");
-        window.location.href = "/signin";
+        setShowHalert(true);
+        setTimeout(() => {
+          setShowHalert(false);
+          
+        }, 3000); // Show alert for 3 seconds before redirecting
       } else {
         alert(data.message);
       }
@@ -54,14 +59,11 @@ export function Signup() {
         <h2 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">
           AI Notes
         </h2>
-        <p className="mt-9 text-lg md:text-xl text-white/90">
-          This is a demo project. Do not put sensitive information.
-        </p>
       </header>
       <div className="flex items-center justify-center flex-grow">
         <div className="w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <h2 className="text-2xl font-bold text-center text-gray-900">Sign In</h2>
+            <h2 className="text-2xl font-bold text-center text-gray-900">Sign Up</h2>
             <div>
               <label htmlFor="Name" className="block mb-2 text-sm font-medium text-gray-700">
                 Name
@@ -119,6 +121,12 @@ export function Signup() {
           </form>
         </div>
       </div>
+      {showHalert && (
+        <CustomHAlert
+          message="The User Created"
+          onClose={() => setShowHalert(false)}
+        />
+      )}
     </div>
   );
 }

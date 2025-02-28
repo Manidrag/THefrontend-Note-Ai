@@ -14,7 +14,7 @@ export function NoteCard({
   return (
     <div
       key={note._id}
-      className="bg-white/20 rounded-xl backdrop-blur-lg shadow-md overflow-hidden relative cursor-pointer transition transform hover:scale-105 duration-300 ease-in-out mx-auto max-w-sm w-full"
+      className="bg-white/20 rounded-xl backdrop-blur-lg shadow-md z-0 overflow-visible cursor-pointer transition transform hover:scale-105 duration-300 ease-in-out mx-auto max-w-sm w-full"
       onClick={() => {
         setSelectedNote(note);
         setIsEditing(false);

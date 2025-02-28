@@ -31,17 +31,13 @@ export function Navbar({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuRef]);
-//ram navmi
 
   return (
-
-    <div className="shadow-md rounded-lg z-1 w-full bg-white/30 backdrop-blur-2xl p-6 border border-white/20 text-white transition-transform transform scale-100 hover:scale-105  ">
-
-   
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between ">
+    <div className="shadow-md rounded-lg z-10 w-full bg-white/30 backdrop-blur-2xl p-6 border border-white/20 text-white transition-transform transform scale-100 hover:scale-105">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Search Input (Full Width on Mobile) */}
-        <div className="relative w-full md:w-1/3 ">
-          <div className="absolute  inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div className="relative w-full md:w-1/3">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <FiSearch className="text-gray-400" />
           </div>
           <input
@@ -63,7 +59,7 @@ export function Navbar({
               id="sort"
               value={sortCriteria}
               onChange={(e) => setSortCriteria(e.target.value)}
-              className="block appearance-none w-full bg-blue-400 border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+              className="block z-100 appearance-none w-full rela bg-blue-400 border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
             >
               <option value="dateAsc">Date (Oldest)</option>
               <option value="dateDesc">Date (Newest)</option>
@@ -78,57 +74,51 @@ export function Navbar({
 
         {/* User Menu (Hamburger on Mobile) */}
         <div className="relative m-2">
-          <button
-            onClick={toggleMobileMenu}
-            className="h flex items-center justify-center px-3 py-2 border rounded text-gray-700 hover:text-gray-900 hover:border-gray-500 focus:outline-none focus:shadow-outline"
-          >
-            <FiUser className="h-5 w-5 "     />{localStorage.getItem("name")}
-          </button>
+  <button
+    onClick={toggleMobileMenu}
+    className="flex items-center justify-center px-3 py-2 border rounded text-gray-700 hover:text-gray-900 hover:border-gray-500 focus:outline-none focus:shadow-outline"
+  >
+    <FiUser className="h-5 w-5" /> {localStorage.getItem("name")}
+  </button>
+</div>
 
-          {/* User Menu (Full Menu on Larger Screens) */}
-          <div
-            ref={menuRef}
-            className={`${
-             menuOpen ? "block" : "hidden"} absolute top-full right-0 mt-2 w-48 text-black bg-amber-200  rounded-md shadow-xl z-10`}
-          >
-            <div className="py-1">
-             <NavLink
-                           to=""
-                           className=
-                             "flex items-center space-x-3 text-black py-3 px-4 rounded-lg transition duration-200 ease-in-out"
-                           
-                           onClick={() => {setShowFavourites(false) 
-                            setMenuOpen(false)
-                             }}
-                           >
-                             <span>Home</span>
-                           </NavLink>
-                            
-                      <button
-                            onClick={() => {setShowFavourites(true)
-                              setMenuOpen(false)
-                             }
-                            }
-                            className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer`}
-                            >
-                             
-                            <span>Favorites</span>
-                            </button>
-                      <button
-                      onClick={() => {
-                  localStorage.removeItem("token");
-                  localStorage.removeItem("name")
-                  window.location.href = "/Signin";
-                  setMenuOpen(false);
-                }}
-                className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                Logout
-              </button>
-            </div>
+{/* Dropdown Menu Outside the Relative Container */}
+{menuOpen && (
+  <div
+    ref={menuRef}
+    className="fixed top right-1/99 w-48 bg-amber-200 text-black rounded-md shadow-xl z-[10000] p-2"
+  >
+    <NavLink
+      to="/profile"
+      className="block px-4 py-2 hover:bg-amber-300 rounded"
+      onClick={() => setMenuOpen(false)}
+    >
+      Profile
+    </NavLink>
+    <NavLink
+      to="/settings"
+      className="block px-4 py-2 hover:bg-amber-300 rounded"
+      onClick={() => setMenuOpen(false)}
+    >
+      Settings
+    </NavLink>
+    <button
+      onClick={() => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("name");
+        window.location.href = "/signin";
+        setMenuOpen(false);
+      }}
+      className="block w-full text-left px-4 py-2 hover:bg-red-300 rounded"
+    >
+      Logout
+    </button>
+  </div>
+)}
+
           </div>
         </div>
-      </div>
-    </div>
+      
+    
   );
 }
