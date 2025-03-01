@@ -44,7 +44,7 @@ export function NotesDashboard() {
             Get Started
           </NavLink>
           <NavLink
-            to="/login"
+            to="/signin"
             className="px-6 py-3 border border-white text-white hover:bg-white hover:text-black rounded-md text-base font-medium transition-colors"
           >
             Sign In
