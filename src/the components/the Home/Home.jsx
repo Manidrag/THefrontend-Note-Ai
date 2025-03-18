@@ -339,7 +339,7 @@ export function Home() {
             boxShadow: "0 0 15px #39FF14, 0 0 30px #39FF14",
           }}
         ></div>
-      </div>
+      </div>//gg
     );
   }
 
