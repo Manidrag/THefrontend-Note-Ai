@@ -43,7 +43,7 @@ export function Home() {
     const fetchNotes = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://the-backend-by8h.onrender.com/notes", {
+        const response = await fetch("https://the-backend-for-old-note.onrender.com/notes", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -108,7 +108,7 @@ export function Home() {
 
   const deleteNote = async (id) => {
     try {
-      const response = await fetch(`https://the-backend-by8h.onrender.com/notes/${id}`, {
+      const response = await fetch(`https://the-backend-for-old-note.onrender.com/notes/${id}`, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -168,7 +168,7 @@ export function Home() {
     }
 
     try {
-      const result = await sendRequest("https://the-backend-by8h.onrender.com/notes/add", "POST", formData);
+      const result = await sendRequest("https://the-backend-for-old-note.onrender.com/notes/add", "POST", formData);
 
       if (result.message === "unauthorized" || result.message === "jwt expired") {
         localStorage.removeItem("token");
@@ -212,7 +212,7 @@ export function Home() {
     }
 
     try {
-      const result = await sendRequest(`https://the-backend-by8h.onrender.com/notes/${id}`, "PUT", formData);
+      const result = await sendRequest(`https://the-backend-for-old-note.onrender.com/notes/${id}`, "PUT", formData);
 
       if (result.message === "unauthorized" || result.message === "jwt expired") {
         localStorage.removeItem("token");

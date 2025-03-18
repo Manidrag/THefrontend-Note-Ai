@@ -14,7 +14,7 @@ export function Signin() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("https://the-backend-by8h.onrender.com/login", {
+      const res = await fetch("https://the-backend-for-old-note.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

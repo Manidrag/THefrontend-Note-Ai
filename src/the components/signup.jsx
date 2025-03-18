@@ -30,7 +30,7 @@ export function Signup() {
     }
 
     try {
-      const res = await fetch("https://the-backend-by8h.onrender.com/signup", {
+      const res = await fetch("https://the-backend-for-old-note.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

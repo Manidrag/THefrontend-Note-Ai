@@ -79,7 +79,7 @@ export function NoteCard({
             try {
               if (note.favourite) {
                 await fetch(
-                  `https://the-backend-by8h.onrender.com/notes/unfavourite/${note._id}`,
+                  `https://the-backend-for-old-note.onrender.com/notes/unfavourite/${note._id}`,
                   {
                     method: "POST",
                     headers: {
@@ -95,7 +95,7 @@ export function NoteCard({
                 );
               } else {
                 await fetch(
-                  `https://the-backend-by8h.onrender.com/notes/favourite/${note._id}`,
+                  `https://the-backend-for-old-note.onrender.com/notes/favourite/${note._id}`,
                   {
                     method: "POST",
                     headers: {
